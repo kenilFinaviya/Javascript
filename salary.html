@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script>
+      var emp = [
+        { name: "divyang", salary: 1200 },
+        { name: "prince", salary: 2200 },
+        { name: "keval", salary: 3000 },
+        { name: "vipul", salary: 2500 },
+        { name: "divyang", salary: 1000 },
+        { name: "prince", salary: 2100 },
+        { name: "keval", salary: 1800 },
+        { name: "vipul", salary: 3100 },
+        { name: "kenil", salary: 2000 },
+      ];
+
+      var a = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+
+      var d = a.map((item) => {
+        if (item == 5) {
+          return item;
+        }
+      });
+      console.log(d);
+
+      var c = a.filter(test1);
+      function test1(a) {
+        return a == 5;
+      }
+      console.log(c);
+
+      var concept = [];
+      emp.map((item, index) => {
+        if (concept.length == 0) {
+          concept.push(item);
+        } else {
+          var a = concept.findIndex((item2) => {
+            return item2.name === item.name;
+          });
+          if (a >= 0) {
+            concept[a].salary += item.salary;
+          } else {
+            concept.push(item);
+          }
+        }
+      });
+      console.log(concept);
+
+      var obj = [
+        { name: "divyang", salary: 1200 },
+        { name: "prince", salary: 2200 },
+        { name: "keval", salary: 3000 },
+        { name: "vipul", salary: 2500 },
+        { name: "prince", salary: 1000 },
+        { name: "prince", salary: 2100 },
+        { name: "keval", salary: 1800 },
+        { name: "prince", salary: 3100 },
+        { name: "kenil", salary: 2000 },
+      ];
+
+      const indexkeval = obj.find((item) => item.name === "keval");
+      console.log("indexkeval", indexkeval);
+      //  console.log('keval', obj[indexkeval]);
+
+      obj.map((item) => {
+        if (item.name == "keval") {
+          return (item.name = "abc");
+        }
+      });
+      console.log(obj);
+
+      var d = [1, 4, 2, 3, 5, 63, 63, 3, 4, 1];
+      var n = 0;
+      var count = d.reduce((item, index) => {
+        item[index] = (item[index] || n) + 1;
+        return item;
+      }, {});
+      console.log(count);
+    </script>
+  </head>
+</html>

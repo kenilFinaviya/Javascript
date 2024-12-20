@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8"> 
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="E:/js/bootstrap/bootstrap-5.0.2-dist/bootstrap-5.0.2-dist/css/bootstrap-grid.min.css">
+    <script src="E:/js/bootstrap/jquery.slim.min.js_3.5.1/cdnjs/jquery.slim.min.js" ></script>
+    <script src="E:/js/bootstrap/popper.min.js/pop/popper.min.js" ></script>
+    <script src="E:/js/bootstrap/bootstrap-5.0.2-dist/bootstrap-5.0.2-dist/js/bootstrap.min.js" ></script>
+	<title>Photo Gallary</title>
+	<style>
+		body {
+			background-image: url('knowledge.jpg');
+			display:black;
+			margin:8px;
+			background-size: cover;
+            background-attachment: fixed;
+            background-repeat: no-repeat;
+            background-position: center;
+		}
+		.title{
+			text-align: center;
+            top: 0px;
+			position: sticky;
+			backdrop-filter: blur(40px);
+			border: 2px solid rgba(255,255,255,0.1);
+			box-shadow: 0 0 40px rgba(8,7,16,0.6);
+			border-bottom: 2px solid black;
+			border-radius: 15px;
+			color: white;
+			font-family: 'Courier New', Courier, monospace;
+			font-size: 20px;
+		}
+		.sidebar{
+			margin-top: 10px;
+			padding: 0;
+			width: 200px;
+			position: fixed;
+			height: 100%;
+			overflow: auto;
+			font-size: 24px;
+			border-right: 2px solid black;
+            border-radius: 15px;
+			font-family: 'Courier New', Courier, monospace;
+		}
+		.sidebar a {
+			display: block;
+			color: white;
+			padding: 16px;
+			text-decoration: none;
+			border-top-right-radius: 20%;
+			border-bottom-right-radius: 20%;
+		}
+		.sidebar a:hover:not(.active) {
+			background-color: black;
+		}
+		img{
+			width: 300px;
+			height: 300px;
+			border-radius: 20%;
+		}
+		.photo{
+			text-align: center;
+			font-size: 55px;
+			margin-top: 10px;
+			font-family: 'Courier New', Courier, monospace;
+			color:white;
+		}
+	</style>
+</head>
+<body>
+	<div class="title">
+		<h1>Shree Shambhubhai V. Patel Collage of Computer Science & Business Management </h1>
+	</div>
+	<div class="sidebar">
+		<div class="a"><a href="Q-4-1.html">Home</a></div>
+		<div class="a"><a href="login.html">Registration</a></div>
+		<div class="a"><a href="college.html">Login</a></div>
+		<div class="a"><a href="photogallary.html">Photo Gallary</a></div>
+		<div class="a"><a href="contact.html">Contact Us</a></div>
+	</div>
+	<div class="photo">Photo Gallary</div>
+	<table align="center">
+		<tr>
+			<td><img src="s1.jpg"></td>
+			<td><img src="s2.jpg"></td>
+		</tr>
+		<tr>
+			<td><img src="s3.jpg"></td>
+			<td><img src="s4.jpg"></td>
+		</tr>
+	</table>
+</body>
+</html>

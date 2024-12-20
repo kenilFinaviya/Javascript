@@ -1,0 +1,431 @@
+<!doctype html>
+<html>
+	<head>
+        <title>Form page</title>
+        <link rel="stylesheet" href="E:/js/bootstrap/bootstrap-5.0.2-dist/bootstrap-5.0.2-dist/css/bootstrap-grid.min.css">
+        <script src="E:/js/bootstrap/jquery.slim.min.js_3.5.1/cdnjs/jquery.slim.min.js" ></script>
+        <script src="E:/js/bootstrap/popper.min.js/pop/popper.min.js" ></script>
+        <script src="E:/js/bootstrap/bootstrap-5.0.2-dist/bootstrap-5.0.2-dist/js/bootstrap.min.js" ></script>
+		<style>
+            *{
+				font-family:Verdana;
+			}
+            body{
+                background-image: url("knowledge.jpg");
+                background-color:cadetblue;
+                font-size: 17px;
+                background-size: cover;
+                background-attachment: fixed;
+                background-repeat: no-repeat;
+                background-position: center;
+			}
+            .title{
+			    text-align: center;
+                top: 0px;
+                position: sticky;
+                backdrop-filter: blur(40px);
+                border: 2px solid rgba(255,255,255,0.1);
+                box-shadow: 0 0 40px rgba(8,7,16,0.6);
+                border-bottom: 2px solid black;
+                border-radius: 15px;
+                color: white;
+                font-family: 'Courier New', Courier, monospace;
+            }
+            .sidebar{
+                margin-top: 10px;
+                padding: 0;
+                width: 200px;
+                position: fixed;
+                height: 100%;
+                overflow: auto;
+                font-size: 20px;
+                border-right: 2px solid black;
+                border-radius: 15px;
+            }
+            .sidebar a {
+                display: block;
+                color: white;
+                padding: 16px;
+                text-decoration: none;
+                border-top-right-radius: 20%;
+                border-bottom-right-radius: 20%;
+            }
+            .sidebar a:hover{
+                background-color: black;
+            }
+			.container{
+                display: block;
+                margin-top: 70px;
+                margin-bottom:70px;
+                width: 500px;
+                padding: 60px 32px;
+                border-radius: 30px;
+                backdrop-filter: blur(10px);
+                border: 2px solid rgba(255,255,255,0.1);
+                box-shadow: 0 0 40px rgba(8,7,16,0.6);
+            }
+			input,textarea{
+                height: 25px;
+                font-size: 17px;
+				margin-bottom:25px;
+                border-radius: 5px;
+                background: transparent;
+                border: none;
+                border-bottom: 1px solid black;
+                color: white;
+			}
+            input[type=checkbox],input[type=radio]{
+                vertical-align: middle;
+                position: relative;
+                margin: 0px;
+                color: white;
+            }
+            label{
+                user-select: none; 
+                font-size: 19px; 
+                color: white;
+            }
+			#button{
+				border-radius:18px;
+				padding:15px;
+                font-size: 15px;
+                align-items: center;
+                font-weight: bold;
+                border: none;
+                background-color: orangered;
+                cursor: pointer;
+                text-decoration:none;
+			}
+			.d2{
+				display: none;
+                margin-top: 70px;
+                margin-bottom:70px;
+                margin: auto;
+				border-radius: 30px;
+                width: 500px;
+                padding: 60px 32px;
+                word-break: break-all;
+                text-align: justify;
+                user-select: none;
+				backdrop-filter: blur(10px);
+                border: 2px solid rgba(255,255,255,0.1);
+                box-shadow: 0 0 40px rgba(8,7,16,0.6);
+			}
+            .info label{
+                font-size: 15px;
+				margin-bottom:25px;
+                margin-right: 45px;
+            }
+            #phone_error{
+                color: red;
+                display: none;
+            }
+		</style>
+	</head>
+	<body>
+        <div class="title">
+            <h1>Shree Shambhubhai V. Patel Collage of Computer Science & Business Management </h1>
+        </div>
+        <div class="sidebar">
+            <div class="a"><a href="Q-4-1.html">Home</a></div>
+            <div class="a"><a href="login.html">Registration</a></div>
+            <div class="a"><a href="college.html">Login</a></div>
+            <div class="a"><a href="photogallary.html">Photo Gallary page</a></div>
+            <div class="a"><a href="contact.html">Contact Us</a></div>
+        </div>
+        <div class="display container">
+					<div class="form-group row">
+                        <label for="firstname" class = "control-label col-sm-4">First name</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form control" id="firstname" placeholder="First name" style="width:90%" autofocus>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="lastname" class = "control-label col-sm-4">Last name</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form control" id="lastname" placeholder="Last name"  style="width:90%">
+                        </div>
+					</div>
+                    <div class="form-group row">
+                        <label for="password" class = "col-sm-4 control-label">Password</label>
+                        <div class="col-sm-8">
+                            <input type="password" class="form control" id="password" placeholder="Password" style="width:90%"><br>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="number" class = "col-sm-4 control-label">Number</label>
+                        <div class="col-sm-8">
+                            <input type="text" placeholder="Mobile number" onblur="return valid()" onkeypress="if(event.keyCode<48 || event.keyCode>57)event.returnValue=false;" maxlength="10" class="form-control" id="number" style="width:90%"/>
+                            <div id="phone_error" class="error hidden">Mobile number must be 10 digits!!!</div><br>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="email" class = "col-sm-4 control-label">Email</label>
+                        <div class="col-sm-8">
+                            <input type="email" class="form-control" id="email" placeholder="email@email.com" onblur="return checkmail()" style="width:90%"/><br>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="dob" class = "col-sm-4 control-label">Date Of Birth</label>
+                        <div class="col-sm-8">
+                           <input type="date" class="form-control" id="dob" placeholder="Date of birth" style="width:90%"><br>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="address" class = "col-sm-4 control-label" >Address</label>
+                        <div class="col-sm-8">
+                            <textarea row="2" cols="27" class="form-control" id="address" placeholder="Address" ></textarea>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="rno" class = "col-sm-4 control-label">Roll No</label>
+                        <div class="col-sm-8">
+                            <input type="number" placeholder="Roll number" class="form-control" id="rno" min="0" step="1" style="width:90%"><br> 
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="div" class = "col-sm-4 control-label" >Div</label>
+                        <div class="col-sm-8">
+                            <select id="block"  style=" background: transparent;border: none;border-bottom: 1px solid black;width:90%" onchange="update()">
+                                <optgroup label="Divison">
+                                    <option class="form-control" id="div" value="SYBCA DIV1">SYBCA DIV1</option>
+                                    <option class="form-control" id="div" value="SYBCA DIV2">SYBCA DIV2</option>
+                                    <option class="form-control" id="div" value="SYBCA DIV3">SYBCA DIV3</option>
+                                </optgroup>
+                            </select>
+                        </div>
+                    </div><br>
+                    <div class="form-check">
+                        <label for="gender" class = "col-sm-2 control-label">Gender</label>
+                        <fieldset style="border-radius: 10px;border:1px dashed black;margin-bottom:15px;">
+                            <input type="radio" name="gender"  onclick="choice()" class="form-check-input vertical-align-center" style="color:white;" id="1" value="male"/>Male<br>
+                            <input type="radio" name="gender"  onclick="choice()" class="form-check-input" id="2" style="color:white;" value="female"/>Female
+                        </fieldset>
+                    </div>
+                    <div class="form-group">
+                        <label for="subject" class = "col-sm-2 control-label">Which subject do you like most?</label><br>
+                        <fieldset style="border-radius: 10px;border:1px dashed black;margin-bottom:15px;">
+                            <input type="checkbox" class="form-check-input" id="s1" name="subject" value="WD"/>WD<br>
+                            <input type="checkbox" class="form-check-input" id="s2" name="subject" value="JAVA"/>JAVA<br>
+                            <input type="checkbox" class="form-check-input" id="s3" name="subject" value=".NET"/>.NET<br>
+                            <input type="checkbox" class="form-check-input" id="s4" name="subject" value="IS"/>IS<br>
+                            <input type="checkbox" class="form-check-input" id="s5" name="subject" value="SE"/>SE<br><br>
+                        </fieldset>
+                    </div>
+                    <div class="form-group">
+                        <label for="faculty" class = "col-sm-2 control-label">Which faculty do you like most?</label><br>
+                        <fieldset style="border-radius: 10px;border:1px dashed black;margin-bottom:15px;">
+                            <label><input type="checkbox" class="form-check-input" id="f1" name="faculty" value="Piyushsir"/>Piyushsir</label><br>
+                            <label><input type="checkbox" class="form-check-input" id="f2" name="faculty" value="Rekhamadam"/>Rekhamadam</label><br>
+                            <label><input type="checkbox" class="form-check-input" id="f3"  name="faculty" value="Riddhimadam"/>Riddhimadam</label><br>
+                            <label><input type="checkbox" class="form-check-input" id="f4" name="faculty" value="Bipinsir"/>Bipinsir</label><br>
+                            <label><input type="checkbox" class="form-check-input" id="f5" name="faculty" value="Bhumimadam"/>Bhumimadam</label><br>
+                            <label><input type="checkbox" class="form-check-input" id="f6" name="faculty" value="Hetamadam"/>Hetamadam</label><br>
+                        </fieldset>
+                    </div><br>
+                    <div class="form-group">
+                        <label for="future"  class = "col-sm-2 control-label">What do you want to be in future?</label>
+                        <div class="col-sm-12" >
+                            <input type="text" list="courselist" placeholder="Future"  class="form-control" id="future" style="width:95%" >
+                            <datalist id="courselist" >
+                                    <option class="form-control" id="future" value="Devloper"></option>
+                                    <option class="form-control" id="future" value="Designer"></option>
+                                    <option class="form-control" id="future" value="Tester"></option>
+                                    <option class="form-control" id="future" value="Administrator"></option>
+                            </datalist><br>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="percentage"  class = "control-label">Percentage in 12th</label>
+                        <form class="form-group row">
+                            <input type="range" id="a" oninput="x.value=parseInt(a.value)" class="col-sm-5"/>
+                            <output name="x" for="a" id="per" class="position-relative col-sm-2"></output>
+                        </form>
+                    </div>
+                    <div class = "form-group">
+                        <div class = "col-md-7 offset-md-5">
+						    <button type="submit" id="button" class = "btn btn-default"  value="submit">submit</button>
+                        </div>
+                    </div>                
+        </div>
+        <div class="d2">
+            <fieldset style="border-radius: 10px;border:1px dashed black;margin-bottom:15px;">
+            <div class="info">     
+                <div class="form-group row">
+                    <label class = "col-sm-4">First name</label>
+                    <div class="col-sm-6">:<label id="fname"></label></div>
+                </div>
+                <div class="form-group row">
+                    <label class = "col-sm-4">Last name</label>
+                    <div class="col-sm-6">:<label id="lname"></label></div>
+                </div>
+                <div class="form-group row">
+                    <label class = "col-sm-4">Password</label>
+                    <div class="col-sm-6">:<label id="pw"></label></div>
+                </div>
+                <div class="form-group row">
+                    <label class = "col-sm-4">Number</label>
+                    <div class="col-sm-6">:<label id="num"></label></div>
+                    
+                </div>
+                <div class="form-group row">
+                    <label class = "col-sm-4">Email</label>
+                    <div class="col-sm-6">:<label id="em"></label></div>
+                </div>
+                <div class="form-group row">
+                    <label class = "col-sm-4">Date Of Birth</label>
+                    <div class="col-sm-6">:<label id="date"></label></div>
+                </div>
+                <div class="form-group row">
+                    <label class = "col-sm-4">Address</label>
+                    <div class="col-sm-6">:<span id="addres"></span></div>
+                </div>
+                <div class="form-group row">
+                    <label class = "col-sm-4">Roll No</label>
+                    <div class="col-sm-6">:<label id="rn"></label></div>
+                </div>
+                <div class="form-group row">
+                    <label class = "col-sm-4">Div</label>
+                    <div class="col-sm-6">:<label id="division"></label></div>
+                </div>
+                <div class="form-group row">
+                    <label class = "col-sm-4">Gender</label>
+                    <div class="col-sm-6">:<label id="gender"></label></div>
+                </div>
+                <div class="form-group row">
+                    <label class = "col-sm-4">Favorite subjects</label>
+                    <div class="col-sm-6">:<label id="fav"></label></div>
+                </div>
+                <div class="form-group row">
+                    <label class = "col-sm-4">Favorite facultys</label>
+                    <div class="col-sm-6">:<label id="fclty"></label></div>
+                </div>
+                <div class="form-group row">
+                    <label class = "col-sm-4">Future's choice</label>
+                    <div class="col-sm-6">:<label id="fchoice"></label></div>
+                </div>
+                <div class="form-group row">
+                    <label class = "col-sm-4">Percentage</label>
+                    <div class="col-sm-6">:<label id="percentage"></label></div>
+                </div>
+            </div>
+            </fieldset>     
+            <div class = "form-group">
+                <div class = "col-md-7 offset-md-4">
+                    <a type="reset" id="button" class = "btn btn-default" value="back to page" href="login.html">Back To Page</a >
+                </div>
+            </div> 
+        </div>
+        <script>
+            var a1 = document.querySelector(".display");
+            var a2 =  document.querySelector(".d2");
+            var fn = document.getElementById("fname"); 
+            var fname = document.getElementById("firstname");
+            var ln = document.getElementById("lname"); 
+            var lname = document.getElementById("lastname");
+            var psw = document.getElementById("pw");
+            var password = document.getElementById("password"); 
+            var n = document.getElementById("num");
+            var number = document.getElementById("number");
+            var em = document.getElementById("em");
+            var email = document.getElementById("email");
+            var d = document.getElementById("dob");
+            var date = document.getElementById("date");  
+            var Addrs = document.getElementById("addres");
+            var adrs = document.getElementById("address");
+            var rn = document.getElementById("rn");
+            var rno = document.getElementById("rno");
+            var division = document.getElementById("division");
+            var gender = document.getElementById("gender");
+            var m = document.getElementById("1");
+            var fm = document.getElementById("2");
+            var fsub = document.getElementById("fav");
+            var ff = document.getElementsByName("faculty");
+            var mark = document.getElementsByName('subject');  
+            var fclt = document.getElementById("fclty");
+            var fchoice = document.getElementById("fchoice");
+            var dream = document.getElementById("future");
+            var per = document.getElementById("per"); 
+            var result = document.getElementById("percentage");
+            var s1 = document.getElementById("s1");
+            var s2 = document.getElementById("s2");
+            var s3 = document.getElementById("s3");
+            var s4 = document.getElementById("s4");
+            var s5 = document.getElementById("s5");
+            var f1 = document.getElementById("f1");
+            var f2 = document.getElementById("f2");
+            var f3 = document.getElementById("f3");
+            var f4 = document.getElementById("f4");
+            var f5 = document.getElementById("f5");
+            var btn = document.getElementById("button");
+            function valid(){
+                if (number.value.length!=10) {
+                    document.getElementById('phone_error').style.display = "block";
+                } else {
+                    document.getElementById('phone_error').style.display = "none";
+                }
+            }
+            function checkmail(){
+				var patton = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;  
+				if(email.value.match(patton)){  
+					return true;  
+				}  else {  
+					alert("You should entered valid email address!");  
+					return false;  
+				}  
+			}
+            function show(){
+                a1.style.display = "none";
+                a2.style.display = "block";
+                fn.innerHTML = fname.value; 
+                ln.innerHTML = lname.value;
+                pw.innerHTML = password.value;
+                n.innerHTML = number.value;
+                em.innerHTML = email.value;
+                date.innerHTML = dob.value;
+                Addrs.innerHTML = adrs.value;
+                rn.innerHTML = rno.value;
+                update();
+                choice();
+                fchoice.innerHTML = dream.value;
+                percentage.innerHTML = per.value + " %"
+            }
+            function update(){
+                var select = document.getElementById('block');
+                var option = select.options[select.selectedIndex];
+                division.innerHTML = option.value;
+            }
+            function choice(){
+                if(m.checked){
+                    gender.innerHTML = m.value;
+                } else {
+                    gender.innerHTML = fm.value;
+                }
+            }
+            btn.addEventListener ('click', (e) => {  
+                for (var f of ff){  
+                    if(f.checked)  
+                        fclt.append(f.value + "  ");  
+                }  
+                for (var checkbox of mark){  
+                    if(checkbox.checked)  
+                        fsub.append(checkbox.value + "  ");  
+                }  
+            }) 
+            btn.addEventListener('click', (e) => {
+                if(fname.value!='' && lname.value!='' && number.value!='' && email.value!='' && date.value!='' && adrs.value!='' &&
+                   rno.value!='' && division.value!='' && (m.checked==true || fm.checked==true) && dream.value!='' && per.value!='' &&
+                    (s1.checked==true || s2.checked==true || s3.checked==true || s4.checked==true || s5.checked==true) && 
+                    (f1.checked==true || f2.checked==true || f3.checked==true || f4.checked==true || f5.checked==true))
+                   {
+                        if (confirm("Are you sure to submit all details?") == true) {
+                            e.preventDefault();
+                            show();
+                        }
+                } else {
+                    alert("Please fill up empty fields!");
+                }
+            })
+		</script>
+	</body>
+</html>

@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            * {
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: gray;
+        }
+        .container{
+            width: 600px;
+            align-items: center;
+            padding-top: 50px;
+            background-color:darkgray;
+            height: 100px;
+            font-family:'Courier New', Courier, monospace;
+        }
+        #newtask {
+            width: 100%;
+        }
+
+        #newtask input {
+
+            width: 500px;
+            height: 40px;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: larger;
+            border-radius: 5px;
+            border-color: black;
+            padding: 10px;
+            position: relative;
+        }
+
+        #tasks {
+            background-color: white;
+            padding-bottom: 50px;
+            border-radius: 5px;
+            margin-right: 0px;
+            margin-left: 0px;
+            position: relative;
+            width: 800px;
+        }
+
+        .task {
+            background-color: #c5e1e6;
+            height: 50px;
+            margin-bottom: 5px;
+            padding: 5px 10px;
+            display: flex;
+            border-radius: 5px;
+            align-items: center;
+            justify-content: space-between;
+            cursor: pointer;
+            width: 490px;
+        }
+
+        .task span {
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 15px;
+            font-weight: 400;
+        }
+
+        #list {
+            width: 550px;
+            padding: 10px;
+        }
+       ul {
+            /* background-color: white; */
+            color: black;
+            border-radius: 5px;
+            list-style-type: none;
+            font-size: 17px;
+            font-family: 'Courier New', Courier, monospace;
+            transition: .4s;
+            width: 550px;
+            /* height: 40px; */
+            margin-left:15px;
+            padding:10px;
+        }
+
+        .button {
+            width: 50px;
+            height: 40px;
+            background-color: aqua;
+            border-radius: 5px;
+            font-size: 20px;
+            font-family: 'Courier New', Courier, monospace;
+            font-weight: bolder;
+            outline-color: black;
+            text-align: center;
+            padding-right: 15px;
+        }
+
+        .checked {
+            text-decoration: line-through;
+        }
+
+        button.close {
+            float: right;
+            font-weight: 300 lighter;
+        }
+        .close:hover {
+            background: gray;
+        }
+        
+        label input.done:checked+span {
+            text-decoration: line-through;
+        }
+        #newtask {
+            margin-left: 20px;
+        }
+
+        #itemcount {
+            color: black;
+            padding-right: 5px;
+            font-family: 'Courier New', Courier, monospace;
+            font-weight: bolder;
+        }
+
+        footer {
+            background-color: white;
+            height: 40px;
+            width: 550px;
+            margin-left: 24px;
+            border-radius: 5px;
+            border-color: black;
+            padding: 10px;
+            color: black;
+            font-family: 'Courier New', Courier, monospace;
+            font-weight: bolder;
+        }
+
+        a {
+            float: right;
+            color: black;
+            padding-right: 15px;
+            font-family: 'Courier New', Courier, monospace;
+            font-weight: bolder;
+        }
+
+        a:hover {
+            color: cadetblue;
+        }
+
+        </style>
+    </head>
+    <body>
+     <div class="container">
+        <div id="newtask">
+            <input type="text" id="input" event="keyup" placeholder="What needs to be done?">
+            <button onclick="click()" class="button">Add</button> 
+        </div>
+        <div >
+           <ul id="list" ></ul>
+        </div>
+     </div>
+        <script>
+            
+           
+           
+           
+           add.addEventListener('keyup', (e) => {
+               if (event.which === 13) {
+                   e.preventDefault();
+                   click();
+                }
+            })
+            
+            btn.addEventListener('click', () => {
+                if (add.value != "") {
+                    click();
+                }
+            })
+
+           </script>
+          
+    </body>
+</html>
+
+
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: gray;
+        }
+
+        #newtask {
+            position: relative;
+        }
+
+        #newtask input {
+
+            width: 500px;
+            height: 40px;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: larger;
+            border-radius: 5px;
+            border-color: black;
+            padding: 10px;
+            position: relative;
+        }
+
+        #tasks {
+            background-color: white;
+            padding-bottom: 50px;
+            border-radius: 5px;
+            margin-right: 0px;
+            margin-left: 0px;
+            position: relative;
+            width: 800px;
+        }
+
+        .task {
+            background-color: #c5e1e6;
+            height: 50px;
+            margin-bottom: 5px;
+            padding: 5px 10px;
+            display: flex;
+            border-radius: 5px;
+            align-items: center;
+            justify-content: space-between;
+            cursor: pointer;
+            width: 490px;
+        }
+
+        .task span {
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 15px;
+            font-weight: 400;
+        }
+
+        #list {
+            width: 550px;
+            padding: 10px;
+          
+        }
+       ul li {
+            background-color: white;
+            border-radius: 5px;
+            list-style-type: none;
+            font-size: 17px;
+            font-family: 'Courier New', Courier, monospace;
+            transition: .4s;
+            width: 550px;
+            height: 40px;
+            margin-left:15px;
+            padding:10px;
+        }
+
+        .button {
+            width: 50px;
+            height: 40px;
+            background-color: aqua;
+            border-radius: 5px;
+            font-size: 20px;
+            font-family: 'Courier New', Courier, monospace;
+            font-weight:300 bolder;
+            outline-color: black;
+            text-align: center;
+            padding-right: 15px;
+        }
+
+        .checked {
+            text-decoration: line-through;
+        }
+
+        button.close {
+            float: right;
+            font-weight: 300 lighter;
+        }
+        .close:hover {background: #bbb;}
+
+        #newtask {
+            margin-left: 20px;
+        }
+        
+        label input.done:checked+span {
+            text-decoration: line-through;
+        }
+
+            #itemcount {
+                color: black;
+                padding-right: 5px;
+                font-family: 'Courier New', Courier, monospace;
+                font-weight: bolder;
+            }
+
+        footer {
+            background-color: white;
+            height: 40px;
+            width: 550px;
+            margin-left: 24px;
+            border-radius: 5px;
+            border-color: black;
+            padding: 10px;
+            color: black;
+            font-family: 'Courier New', Courier, monospace;
+            font-weight: bolder;
+        }
+
+        a {
+            float: right;
+            color: black;
+            padding-right: 15px;
+            font-family: 'Courier New', Courier, monospace;
+            font-weight: bolder;
+        }
+
+        a:hover {
+            color: cadetblue;
+        }
+        button.clear{
+            font-weight: 300 bolder;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div>
+        <div id="newtask">
+            <input type="text" id="input" event="keyup" placeholder="What needs to be done?">
+            <button onclick="click()" class="button">Add</button>
+        </div>
+
+        <div>
+            <label><input type="checkbox" class="checkboxes"  style="margin-left: 20px;margin-top:5px;margin-right:5px;font-weight: bolder;" onclick="check()"><span>All check</span></input></label>
+            <ul id="list">
+            </ul>
+        </div>
+
+        <script>
+              add.addEventListener('keyup', (e) => {
+                        if (event.which === 13) {
+                            click();
+                        }
+                    })
+            
+            btn.addEventListener('click', () => {
+                if (add.value != "") {
+                    click();
+                }
+            })
+            var add = document.querySelector('#input');
+            var btn = document.querySelector('.button');
+            var list = document.querySelector('#list');
+            var a1 = document.getElementsByTagName('li');
+            var itemchcek = document.querySelector('.itemcount');
+            
+            var item = [];
+            
+            var count = 0;
+            function click() {
+                if (add.value != "") {
+                 
+                    var item= input.value;
+                    var li = document.createElement('li');
+                    li.innerHTML = '<label><input type="checkbox" name="check"  class="done"><span>' + "  " + item + '</span></label><button  class="close">X</button>';
+                    list.insertBefore(li, list.childNodes[0]);
+                    input.value = '';
+                    
+                    
+                    if (item.checked) {
+                        count--;
+                        document.getElementById('itemcount').innerText = count;
+                        //console.log(count);
+                    }
+                    else {
+                        count++;
+                        document.getElementById('itemcount').innerText = count;
+                        //console.log(count);
+                    }
+                }
+                
+                
+                
+                
+                var close = document.getElementsByClassName("close");
+                for (i = 0; i < close.length; i++) {
+                    close[i].onclick = function () {
+                        var li = this.parentElement;
+                        li.style.display = "none";
+                        count--;
+                        document.getElementById('itemcount').innerText = count; 
+                        // console.log(count);
+                    }
+                }
+                
+            }
+
+
+            // function clearAll(){
+            //     var clear=document.querySelectorAll('#input');
+            //     var i;
+            //     for(i=0;i<clear.length;i++)
+            //      {
+            //          if(clear.checked==true)
+            //           {
+            //             var li = this.parentElement;
+            //             li.style.display = "none";
+            //             count--;
+            //             document.ge('').innerText = count; 
+            //           }
+            //      }
+            // }
+                  
+            
+        //     console.log(add);
+        //     function check(){
+        //        var checkboxes =document.getElementsByClassName('done');
+        //        var allcheck=add.checked;
+        //        var i;
+        //      for(i=0;i<allcheck.lenth;i++)
+        //      {
+        //          checkboxes[i].checked=allcheck;
+        //          console.log(checkboxes.checked);
+        //       }
+        //  }
+            
+            
+            
+
+       
+    </script>
+        <footer>
+                <span id="itemcount">0</span><span> item left</span>
+                
+                <button  style="float:right;" class="clear" onclick="clearAll()">clear all</button>
+                <button  style="float:right;" class="completed">Completed</button>
+                <button  style="float:right;" class="active">Active</button>
+                <button  style="float:right;" class="all">All</button>
+        
+        </footer>
+        
+    </div>
+</body>
+
+</html>

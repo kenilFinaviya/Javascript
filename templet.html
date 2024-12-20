@@ -1,0 +1,164 @@
+<html lang="eng">
+    <head>
+        <title>templet</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width-device-width, initical-scale=1">
+        <style>
+                        *{
+               box-sizing: border-box;
+             }
+             body{
+                  font-family: 'Courier New', Courier, monospace;
+                 }
+             header{
+                     background-color: cadetblue;
+                     text-align: center;     
+                     color: black;
+                     border-radius: 10px;
+                     font-size: 35px;
+                     padding:5px;    
+                   }
+             nav{
+                 flex: 1;
+                 flex: 1;
+                 float: left;
+                 width: 20px;
+                 height: 330px;
+                 background: #ccc;
+                 border-radius: 10px;
+                 padding: 50px;
+                 font-size: 30px;
+                 text-align: center;
+                }
+             nav ul{
+                     list-style-type: none ;
+                     padding:0; 
+                     font-size: 30px;
+                 text-align: center;
+                   }
+             article{
+                      float: left;
+                      padding: 50px;
+                      width: 1232px;
+                      background-color: darkcyan;
+                      border-radius: 10px;
+                      height: 330px;
+                      font-size: 20px;
+                    }
+             section{
+                 display: flex;
+                 display: flex;
+             }
+             section::after{
+                            content: "";
+                            clear: both;
+                            display: table;
+                           }
+             footer{
+                     background-color:burlywood;
+                     padding: 10px;
+                     border-radius: 10px;
+                     text-align: center;
+                     color: black;
+                     font-size: 30px;
+                   }
+             @media(max-width:600px){
+                 nav, artical{
+                     width: 100%;
+                     height: auto;
+                 }
+           }
+.menu{
+  float: left;
+  width: 20%;
+}
+.menuitem {
+  padding: 8px;
+  margin-top: 7px;
+  border-bottom: 1px solid #f1f1f1;
+}
+.main {
+  float: left;
+  width: 60%;
+  padding: 20px;
+  overflow: hidden;
+}
+.right {
+  background-color: lightblue;
+  float: left;
+  width: 20%;
+  padding: 10px 15px;
+  margin-top: 7px;
+}
+@media only screen and (max-width:800px) {
+  /* For tablets: */
+  .main {
+    width: 80%;
+    padding: 0;
+  }
+  .right {
+    width: 100%;
+  }
+}
+@media only screen and (max-width:500px) {
+  /* For mobile phones: */
+  .menu, .main, .right {
+    width: 100%;
+  }
+}
+
+        </style>
+    </head>
+    <body>
+            <h2 style="text-align: center;">css layout float</h2>
+            <p>In this example, we have created a header, two columns/boxes and a footer. On smaller screens, the columns will stack on top of each other.<br>Resize the browser window to see the responsive effect (you will learn more about this in our next chapter - HTML Responsive.)</p>
+            <header><h2>BCA</h2></header>
+            
+            <section>
+                <nav>
+                     <ul>
+                         <li><a href=""#>FY</a></li>
+                         <li><a href=""#>SY</a></li>
+                         <li><a href=""#>TY</a></li>
+                     </ul>
+                </nav>
+                <article>
+
+                    <h1>Hello Student...</h1>
+                    <p>Hello student how are you?<br>Now your university exam is near so <b>BEST OF LUCK.....</b></p>
+                </article>
+            </section>
+            
+            
+            <footer>
+                <p><b>BY VNSGU</b></p>
+            </footer>
+
+    <div style="background-color: aquamarine;color: black;border-color: black;border-radius: 10px;padding: 10px;">
+     <h1 style="text-align: center;">Welcome To Our Site</h1>
+     <p>Hope you enjoy! </p>
+    </div>
+    <div style="overflow: auto;">
+       <div class="menu">
+           <div class="menu">Transport</div><br>
+           <div class="menu">History</div><br>
+           <div class="menu">Gallery</div>
+        </div>
+        <div class="main">
+            <h2>The Walk</h2>
+            <p>The walk from Monterosso to Riomaggiore will take you approximately two hours, give or take an hour depending on the weather conditions and your physical shape.</p>
+            <img src="yellow.jpg" style="width: 500px;">
+        </div>
+        <div class="right">
+            <h2>What?</h2>
+            <p>Cinque Terre comprises five villages: Monterosso, Vernazza, Corniglia, Manarola, and Riomaggiore.</p>
+            <h2>Where?</h2>
+            <p>On the northwest cost of the Italian Riviera, north of the city La Spezia.</p>
+            <h2>Price?</h2>
+            <p>The Walk is free!</p>
+          </div>
+          <div style="background-color:#f1f1f1;text-align:center;padding:10px;margin-top:7px;font-size:12px;"> This web page is a part of a demonstration of fluid web design made by w3schools.com. Resize the browser window to see the content respond to the resizing.</div>
+        
+    </div>
+    </body>
+</html>

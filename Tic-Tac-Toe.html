@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        *{
+            font-weight:bold;
+            font-size: 24px; 
+        }
+        body {
+            background-color: lightslategrey;
+            user-select: none;
+        }
+
+        .main{
+            display:none;
+            float: left;
+            font-size: 50px;
+            font-weight: bolder;
+            font-family: 'Courier New', Courier, monospace;
+            padding-top: 10px;
+            padding-left: 60px;
+            text-align: center;
+            cursor: pointer;
+            -webkit-box-reflect: below -20px linear-gradient(transparent, rgba(0,0,0,.2));
+            animation: flip 2s infinite;
+            animation-delay: calc(.2s * var(--i))
+        } 
+         @keyframes flip {
+            0%,80% {
+                transform: rotateY(360deg) 
+            }
+        }
+        
+        header {
+            color: black;
+            border-radius: 5px;
+            font-size: 50px;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            text-align: center;
+            height: 100px;
+        }
+
+        nav {
+            float:left;
+            width: 370px;
+            padding-left: 40px;
+            padding-right: 140px;
+            border-radius: 10px;
+            text-align: center;
+            font-size: 24px;
+            font-family: 'Courier New', Courier, monospace;
+        }
+      
+       #box{
+
+           display: none;
+       }
+        
+        .perent {
+            display: flex;
+        }
+
+        .d {
+            width: 97px;
+            height: 97px;
+            border: 2px solid black;
+            display: flex;
+            border-radius: 15px;
+            justify-content: center;
+            align-items: center;
+            font-size: 50px;
+            cursor: pointer;
+            font-weight: lighter;
+            color: black;
+            background-color: lightblue;
+        }
+
+        .d:hover {
+            background-color: darkgoldenrod;
+        }
+
+        label {
+            float: left;
+        }
+
+        h3 {
+            margin-top: 0px;
+            float: left;
+            font-size: 24px;
+            font-family: 'Courier New', Courier, monospace;
+        }
+
+        #insert1 {
+            float: left;
+            width: 228px;
+            height: 25px;
+            border-radius: 5px;
+            font-size: 20px;
+            font-family: 'Courier New', Courier, monospace;
+        }
+
+        #insert2 {
+            float: left;
+            width: 228px;
+            height: 25px;
+            border-radius: 5px;
+            font-size: 20px;
+            font-family: 'Courier New', Courier, monospace;
+        }
+
+        .element1 {
+            color: brown;
+            font-size: 24px;
+            font-weight: bolder;
+            font-family: 'Courier New', Courier, monospace;
+            user-select: none;
+            word-break: break-all;
+        }
+
+        .element2 {
+            color:lightskyblue;
+            font-size: 24px;
+            font-weight: bolder;
+            font-family: 'Courier New', Courier, monospace;
+            user-select: none;
+            word-break: break-all;
+        }
+
+        .b1 {
+            float: left;
+            height: 30px;
+            width: 90px;
+            border-radius: 25px;
+            font-size: large;
+            font-family: 'Courier New', Courier, monospace;
+            cursor: pointer;
+        }
+
+        .b1:hover {
+            background-color: darkorange;
+        }
+
+        .b2 {
+            float: right;
+            height: 30px;
+            width: 90px;
+            border-radius: 25px;
+            font-size: large;
+            font-family: 'Courier New', Courier, monospace;
+            cursor: pointer;
+        }
+
+        .b2:hover {
+            background-color: darkorange;
+        }
+
+        .show {
+            display: none;
+            float: left;
+            font-size: large;
+            font-family: 'Courier New', Courier, monospace;
+            cursor: pointer;
+        }
+
+        .label {
+            font-size: large;
+            font-family: 'Courier New', Courier, monospace;
+            cursor: pointer;
+        }
+
+        .b3 {
+            height: 30px;
+            width: 90px;
+            border-radius: 25px;
+            font-size: large;
+            font-family: 'Courier New', Courier, monospace;
+            cursor: pointer;
+            margin-top: 193px;
+        }
+
+        .b3:hover {
+            background-color: darkorange;
+        }
+
+        .b4 {
+            float: center;
+            height: 30px;
+            width: 90px;
+            border-radius: 25px;
+            font-size: large;
+            font-family: 'Courier New', Courier, monospace;
+            cursor: pointer;
+            margin-top: 150px;
+        }
+
+        .b4:hover {
+            background-color: darkorange;
+        }
+
+        .again{
+            display: none;
+            border-radius: 25px;
+            cursor: pointer;
+        }
+    </style> 
+</head>
+<body>
+    <header>Tic-Tac-Toe</header>
+    <section>
+        <nav>
+            <div class="div1">
+                <label>Player 1:</label><input type="text" id="insert1" required class="addvalue1" autofocus /><br><br>
+                <h3>Choose your character:</h3>
+                <label><input type="radio" id="1" class="a1" name="R" onclick="choice1()" value="O" /> O</label><br>
+                <label><input type="radio" id="2" class="a2" name="R" onclick="choice1()" value="X" /> X</label><br><br>
+
+                <label>Player 2:</label><input type="text" id="insert2" required class="addvalue2" autofocus /><br><br>
+                <h3>Choose your character:</h3>
+                <label><input type="radio" id="3" class="a3" name="Q" onclick="choice2()" value="O" /> O</label><br>
+                <label><input type="radio" id="4" class="a4" name="Q" onclick="choice2()" value="X" /> X</label><br><br>
+
+                <button class="b1">START</button><button class="b2" onclick="reset()">RESTART</button>
+            </div>
+            <div class="show">
+                <label>Player 1:</label><label class="element1"></label><br>
+                <label style="margin-bottom: 20px;">Character:</label><label
+                    class="text1" style="font-weight:bolder;color:brown;"></label><br>
+                <label style="font-weight:bold;">Player 2:</label><label class="element2"></label><br>
+                <label style="font-weight:bold;margin-bottom: 20px">Character:</label><label
+                    class="text2" style="font-weight:bolder;color:lightskyblue;"></label><br>
+                <label><span style="font-weight:bolder;" class="turn"></span>'s turn</label>
+                <input type="reset" class="b3" onclick="reset()" value="RESTART"></input>
+            </div>
+            <div class="main"></div>
+            <div class="again">
+                <input type="reset" class="b4" onclick="reset()" value="RESTART" ></input>
+            </div>
+        </nav>
+        <div id="box">
+            <div class="perent">
+                <div class="d" id="d1" onclick="current(id)"></div>
+                <div class="d" id="d2" onclick="current(id)"></div>
+                <div class="d" id="d3" onclick="current(id)"></div>
+            </div>
+            <div class="perent">
+                <div class="d" id="d4" onclick="current(id)"></div>
+                <div class="d" id="d5" onclick="current(id)"></div>
+                <div class="d" id="d6" onclick="current(id)"></div><br>
+            </div>
+            <div class="perent">
+                <div class="d" id="d7" onclick="current(id)"></div>
+                <div class="d" id="d8" onclick="current(id)"></div>
+                <div class="d" id="d9" onclick="current(id)"></div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        var arr = [];
+        var btn1 = document.querySelector('.b1');
+        var n = document.getElementById("box");
+        var cell = document.querySelectorAll('.d');
+        var won = document.getElementsByClassName('main');
+        
+        function click() {
+            var obj1 = document.getElementById("insert1").value;
+            var obj2 = document.getElementById("insert2").value;
+            var r1 = document.getElementsByClassName("a1");
+            var r2 = document.getElementsByClassName("a2");
+            var r3 = document.getElementsByClassName("a3");
+            var r4 = document.getElementsByClassName("a4");
+            // console.log(r1,r2,r3,r4,obj1,obj2);
+            if (obj1 != '' && obj2 != '' && (document.querySelector(".a1").checked||document.querySelector(".a1").checked||document.querySelector(".a2").checked||document.querySelector(".a4").checked)) {
+                if(obj1.length > 0 && obj2.length > 0 ){
+                    document.querySelector(".div1").style.display = "none";
+                    document.querySelector(".show").style.display = "block";
+                    document.querySelector(".b3").style.display = "block";
+                    document.querySelector("#box").style.display = "block";
+                   
+                }
+                else {
+                    document.querySelector(".div1").style.display = "block";
+                    document.querySelector(".show").style.display = "none";
+                    document.querySelector(".b3").style.display = "none";
+                }
+                document.getElementById("insert1").style.display = "none";
+                document.querySelector(".element1").innerHTML = obj1;
+                document.getElementById("insert2").style.display = "none";
+                document.querySelector(".element2").innerHTML = obj2;
+                console.log(arr);
+            }
+            else{
+                window.alert("Please fill up all fields!"); 
+            }
+        }
+
+        function choice1() {
+            var player1 = document.querySelector(".addvalue1").value ;
+            var player2 = document.querySelector(".addvalue2").value ;
+            if (document.getElementById("1").checked) {
+                document.getElementById("4").checked = true;
+                document.getElementById("3").disabled = true;
+                document.querySelector(".text1").innerHTML = document.getElementById("1").value;
+                document.querySelector(".text2").innerHTML = document.getElementById("4").value;
+                document.querySelector(".turn").innerHTML = player1;
+            }
+            else if (document.getElementById("2").checked) {
+                document.getElementById("3").checked = true;
+                document.getElementById("4").disabled = true;
+                document.querySelector(".text1").innerHTML = document.getElementById("2").value;
+                document.querySelector(".text2").innerHTML = document.getElementById("3").value;
+                document.querySelector(".turn").innerHTML = player1;
+            }
+        }
+
+        function choice2() {
+            if (document.getElementById("3").checked) {
+                document.getElementById("2").checked = true;
+                document.getElementById("1").disabled = true;
+                document.querySelector(".text1").innerHTML = document.getElementById("2").value;
+                document.querySelector(".text2").innerHTML = document.getElementById("3").value;
+                document.querySelector(".turn").innerHTML = player2;
+            }
+            else if (document.getElementById("4").checked) {
+                document.getElementById("1").checked = true;
+                document.getElementById("2").disabled = true;
+                document.querySelector(".text1").innerHTML = document.getElementById("1").value;
+                document.querySelector(".text2").innerHTML = document.getElementById("4").value;
+                document.querySelector(".turn").innerHTML = player2;
+            }
+        }
+
+        var turn = 1;
+        function current(id) {
+            var a1 = document.querySelector('.addvalue1').value;
+            var a2 = document.querySelector('.addvalue2').value;
+            var a3 = document.getElementsByClassName("b1");
+            var player1 = document.querySelector(".addvalue1").value ;
+            var player2 = document.querySelector(".addvalue2").value ;
+            if(a1=="" || a2=="" ){
+                window.alert("Please fill up all fields!");
+            }
+            else{
+                if (turn === 1) {
+                document.getElementById(id).innerHTML = document.querySelector(".text1").innerHTML;
+                document.querySelector(".turn").innerHTML = player2;
+                document.getElementById(id).style.pointerEvents = 'none';
+                turn = 0;
+                } else {
+                    document.getElementById(id).innerHTML = document.querySelector(".text2").innerHTML;
+                    document.querySelector(".turn").innerHTML = player1;
+                    document.getElementById(id).style.pointerEvents = 'none';
+                    turn = 1;
+                }
+                Choose();
+            }
+        }
+
+        function Choose() {
+            var player1 = document.querySelector(".addvalue1").value ;
+            var player2 = document.querySelector(".addvalue2").value ;
+            var a1, a2, a3, a4, a5, a6, a7, a8, a9;
+            a1 = document.getElementById("d1").innerHTML;
+            a2 = document.getElementById("d2").innerHTML;
+            a3 = document.getElementById("d3").innerHTML;
+            a4 = document.getElementById("d4").innerHTML;
+            a5 = document.getElementById("d5").innerHTML;
+            a6 = document.getElementById("d6").innerHTML;
+            a7 = document.getElementById("d7").innerHTML;
+            a8 = document.getElementById("d8").innerHTML;
+            a9 = document.getElementById("d9").innerHTML;
+            console.log(player1,player2);
+            if ((a1 == "X" && a2 == "X" && a3 == "X") || (a1 == "O" && a2 == "O" && a3 == "O")){
+                if(a1 == "X" && a2 == "X" && a3 == "X"){
+                    n.style.pointerEvents = 'none';
+                    document.querySelector(".show").style.display = "none";
+                    document.querySelector(".main").style.display = "block";
+                    turn=1;
+                    if(turn = 0){
+                        document.querySelector(".main").innerHTML = "Player "+player1+" won";
+                    }
+                    else{
+                        document.querySelector(".main").innerHTML = "Player "+player2+" won";
+                    }
+                    document.querySelector(".again").style.display = "block";
+                }
+                else{
+                    n.style.pointerEvents = 'none';
+                    document.querySelector(".show").style.display = "none";
+                    document.querySelector(".main").style.display = "block";
+                    turn=0;
+                    if(turn = 1){
+                        document.querySelector(".main").innerHTML = "Player "+player1+"won";
+                    }
+                    else{
+                        document.querySelector(".main").innerHTML = "Player "+player2+"won";
+                    }
+                    document.querySelector(".again").style.display = "block";
+                }
+            }
+            else if ((a4 == "X" && a5 == "X" && a6 == "X") || (a4 == "O" && a5 == "O" && a6 == "O")){
+                if(a4 == "X" && a5 == "X" && a6 == "X"){
+                    n.style.pointerEvents = 'none';
+                    document.querySelector(".show").style.display = "none";
+                    document.querySelector(".main").style.display = "block";
+                    document.querySelector(".main").innerHTML = "Player X won";
+                    document.querySelector(".again").style.display = "block";
+                }
+                else{
+                    n.style.pointerEvents = 'none';
+                    document.querySelector(".show").style.display = "none";
+                    document.querySelector(".main").style.display = "block";
+                    document.querySelector(".main").innerHTML = "Player O won";
+                    document.querySelector(".again").style.display = "block";
+                }
+            }
+            else if ((a7 == "X" && a8 == "X" && a9 == "X") || (a7 == "O" && a8 == "O" && a9 == "O")) {
+                if(a7 == "X" && a8 == "X" && a9 == "X"){
+                    n.style.pointerEvents = 'none';
+                    document.querySelector(".show").style.display = "none";
+                    document.querySelector(".main").style.display = "block";
+                    document.querySelector(".main").innerHTML = "Player X won";
+                    document.querySelector(".again").style.display = "block";
+                }
+                else{
+                    n.style.pointerEvents = 'none';
+                    document.querySelector(".show").style.display = "none";
+                    document.querySelector(".main").style.display = "block";
+                    document.querySelector(".main").innerHTML = "Player O won";
+                    document.querySelector(".again").style.display = "block";
+                }
+            }
+            else if ((a1 == "X" && a4 == "X" && a7 == "X") || (a1 == "O" && a4 == "O" && a7 == "O")) {
+                if(a1 == "X" && a4 == "X" && a7 == "X"){
+                    n.style.pointerEvents = 'none';
+                    document.querySelector(".show").style.display = "none";
+                    document.querySelector(".main").style.display = "block";
+                    document.querySelector(".main").innerHTML = "Player X won";
+                }
+                else{
+                    n.style.pointerEvents = 'none';
+                    document.querySelector(".show").style.display = "none";
+                    document.querySelector(".main").style.display = "block";
+                    document.querySelector(".main").innerHTML = "Player O won";
+                    document.querySelector(".again").style.display = "block";
+                }
+            }
+            else if ((a2 == "X" && a5 == "X" && a8 == "X") || (a2 == "O" && a5 == "O" && a8 == "O")){
+                if(a2 == "X" && a5 == "X" && a8 == "X"){
+                    n.style.pointerEvents = 'none';
+                    document.querySelector(".show").style.display = "none";
+                    document.querySelector(".main").style.display = "block";
+                    document.querySelector(".main").innerHTML = "Player X won";
+                    document.querySelector(".again").style.display = "block";
+                }
+                else{
+                    n.style.pointerEvents = 'none';
+                    document.querySelector(".show").style.display = "none";
+                    document.querySelector(".main").style.display = "block";
+                    document.querySelector(".main").innerHTML = "Player O won";
+                    document.querySelector(".again").style.display = "block";
+                }
+            }
+           
+            else if ((a3 == "X" && a6 == "X" && a9 == "X") || (a3 == "O" && a6 == "O" && a9 == "O")){
+                if(a3 == "X" && a6 == "X" && a9 == "X"){
+                    n.style.pointerEvents = 'none';
+                    document.querySelector(".show").style.display = "none";
+                    document.querySelector(".main").style.display = "block";
+                    document.querySelector(".main").innerHTML = "Player X won";
+                    document.querySelector(".again").style.display = "block";
+                }
+                else{
+                    n.style.pointerEvents = 'none';
+                    document.querySelector(".show").style.display = "none";
+                    document.querySelector(".main").style.display = "block";
+                    document.querySelector(".main").innerHTML = "Player O won";
+                    document.querySelector(".again").style.display = "block";
+                }
+            }
+            
+            else if ((a1 == "X" && a5 == "X" && a9 == "X") || (a1 == "O" && a5 == "O" && a9 == "O")){
+                if(a1 == "X" && a5 == "X" && a9 == "X"){
+                    n.style.pointerEvents = 'none';
+                    document.querySelector(".show").style.display = "none";
+                    document.querySelector(".main").style.display = "block";
+                    document.querySelector(".main").innerHTML = "Player X won";
+                    document.querySelector(".again").style.display = "block";
+                }
+                else{
+                    n.style.pointerEvents = 'none';
+                    document.querySelector(".show").style.display = "none";
+                    document.querySelector(".main").style.display = "block";
+                    document.querySelector(".main").innerHTML = "Player O won";
+                    document.querySelector(".again").style.display = "block";
+                }
+            }
+            
+            else if ((a3 == "X" && a5 == "X" && a7 == "X") || (a3 == "O" && a5 == "O" && a7 == "O")){
+                if(a3 == "X" && a5 == "X" && a7 == "X"){
+                    n.style.pointerEvents = 'none';
+                    document.querySelector(".show").style.display = "none";
+                    document.querySelector(".main").style.display = "block";
+                    document.querySelector(".main").innerHTML = "Player X won";
+                    document.querySelector(".again").style.display = "block";
+                }
+                else{
+                    n.style.pointerEvents = 'none';
+                    document.querySelector(".show").style.display = "none";
+                    document.querySelector(".main").style.display = "block";
+                    document.querySelector(".main").innerHTML = "Player O won";
+                    document.querySelector(".again").style.display = "block";
+                }
+            }
+            
+            else if ((a1 == 'X' || a1 == 'O') && (a2 == 'X' || a2 == 'O') && (a3 == 'X' || a3 == 'O') &&(a4 == 'X' || a4 == 'O') && (a5 == 'X' || a5 == 'O') && (a6 == 'X' || a6 == 'O') &&
+                (a7 == 'X' || a7 == 'O') && (a8 == 'X' || a8 == 'O') && (a9 == 'X' || a9 == 'O')) {
+                n.style.pointerEvents = 'none';
+                document.querySelector(".show").style.display = "none";
+                document.querySelector(".main").style.display = "block";
+                document.querySelector(".main").innerHTML = "Match Tie";
+                document.querySelector(".again").style.display = "block";
+            }
+        }
+
+        function reset(){
+            location.reload();
+            document.getElementById("d1").value = "";
+            document.getElementById("d2").value = "";
+            document.getElementById("d3").value = "";
+            document.getElementById("d4").value = "";
+            document.getElementById("d5").value = "";
+            document.getElementById("d6").value = "";
+            document.getElementById("d7").value = "";
+            document.getElementById("d8").value = "";
+            document.getElementById("d9").value = "";
+        }
+
+        btn1.addEventListener('click', (e) => {
+            e.preventDefault();
+            click();
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        background-color: grey;
+        height: auto;
+      }
+
+      #list {
+        width: 550px;
+        padding: 10px;
+      }
+
+      .div {
+        background-color: paleturquoise;
+        display: none;
+        width: 556px;
+        border-bottom-left-radius: 5px;
+        border-bottom-right-radius: 5px;
+      }
+
+      .newdiv {
+        position: absolute;
+      }
+
+      .color {
+        background-color: white;
+        width: 25px;
+        height: 40px;
+        float: left;
+        border-top-left-radius: 5px;
+        padding-top: 8px;
+      }
+
+      #input {
+        outline: none;
+        border: none;
+        width: 532px;
+        height: 40px;
+        border-top-left-radius: 0px;
+        border-top-right-radius: 5px;
+        font-size: 24px;
+        font-family: "Courier New", Courier, monospace;
+      }
+
+      .label {
+        display: inline;
+        border-color: black;
+        padding: 0px 0px 0px 15px;
+        font-size: 24px;
+        font-family: "Courier New", Courier, monospace;
+        word-break: break-all;
+        user-select: none;
+      }
+
+      .newele {
+        display: none;
+        margin-left: 40px;
+        width: 511px;
+        height: 25px;
+        border-radius: 3px;
+        border: none;
+        background-color: paleturquoise;
+        font-size: 24px;
+        font-family: "Courier New", Courier, monospace;
+        font-weight: 300 bold;
+      }
+
+      #ull {
+        padding: 0px;
+        margin: 3px 0px 0px 0px;
+      }
+
+      .checkbox {
+        cursor: pointer;
+        padding: 5px 5px 5px 5px;
+        margin: 5px 5px 5px 5px;
+        box-sizing: border-box;
+      }
+
+      hr {
+        margin: 0px;
+      }
+
+      .close {
+        background-color: initial;
+        border: none;
+        margin-right: 10px;
+        float: right;
+        font-weight: lighter;
+        font-size: medium;
+        user-select: none;
+        margin: 5px;
+      }
+
+      .close:hover {
+        cursor: default;
+      }
+
+      footer {
+        background-color: darkgray;
+        height: 40px;
+        width: 556px;
+        border-bottom-left-radius: 5px;
+        border-bottom-right-radius: 5px;
+        border-color: black;
+        padding: 10px;
+        color: black;
+        font-family: "Courier New", Courier, monospace;
+        user-select: none;
+        position: relative;
+        box-shadow: 0 1px 1px rgb(0 0 0 / 20%), 0 8px 0 -3px #faf9f7,
+          0 9px 1px -3px rgb(0 0 0 / 20%), 0 16px 0 -6px #eaa607,
+          0 17px 2px -6px rgb(0 0 0 / 20%);
+      }
+
+      .count {
+        color: black;
+        padding-right: 5px;
+        font-family: "Courier New", Courier, monospace;
+        font-weight: bolder;
+        user-select: none;
+      }
+
+      .filterValue {
+        float: right;
+        margin-right: 5px;
+        border-radius: 5px;
+        font-family: "Courier New", Courier, monospace;
+        font-weight: bolder;
+        cursor: pointer;
+        user-select: none;
+      }
+
+      .filterValue:hover {
+        background-color: #eaa607;
+      }
+
+      .null {
+        float: right;
+        margin-right: 5px;
+        border-radius: 5px;
+        font-family: "Courier New", Courier, monospace;
+        font-weight: bolder;
+        cursor: pointer;
+        user-select: none;
+      }
+
+      .null:hover {
+        background-color: #eaa607;
+      }
+    </style>
+  </head>
+
+  <body>
+    <header>
+      <label class="color"
+        ><input
+          type="checkbox"
+          id="allcheck"
+          name="editvalue"
+          onchange="checkAll(this) "
+          style="margin-top: 5px"
+      /></label>
+      <input
+        type="text"
+        placeholder="Add task"
+        value=""
+        id="input"
+        class="addvalue"
+        event="keyup"
+        autofocus
+      />
+      <input type="hidden" value="al" id="hide" value="static" />
+    </header>
+    <div class="div">
+      <div>
+        <ul id="ull"></ul>
+        <footer>
+          <span id="total">0</span><span> item left</span>
+          <button class="null" value="clear" onclick="remove()">
+            clear completed
+          </button>
+          <button class="filterValue" value="completed">Completed</button>
+          <button class="filterValue" value="active">Active</button>
+          <button class="filterValue" value="all" onclick="remove()">
+            All
+          </button>
+        </footer>
+      </div>
+    </div>
+
+    <script>
+      var add = document.querySelector("#input");
+      var checkk = document.getElementsByClassName("checkbox");
+      var element = document.getElementsByClassName("label");
+      var closebtns = document.getElementsByClassName("close");
+      var inputname = document.getElementsByName("newvalue");
+      var btnfilter = document.querySelectorAll(".filterValue");
+      var hidden = document.getElementsByClassName("newDiv");
+
+      var arr = [];
+      var newArray = [];
+      var count = 0;
+
+      var uni = (length = 5) => {
+        return parseInt(
+          Math.ceil(Math.random() * Date.now())
+            .toPrecision(length)
+            .toString()
+            .replace(".", "")
+        );
+      };
+
+      function click() {
+        var obj = document.getElementById("input").value;
+        if (obj != "") {
+          arr.push({ task: obj, ischecked: false, unique: uni() });
+          count += 1;
+          document.getElementById("total").innerHTML = count;
+          var result = document.querySelector("#hide").value;
+          filter(result);
+        }
+        input.value = "";
+      }
+
+      function print(itemss) {
+        var item = "";
+        if (arr.length > 0) {
+          document.querySelector(".div").style.display = "block";
+        } else {
+          document.querySelector(".div").style.display = "none";
+        }
+        for (i = 0; i < itemss.length; i++) {
+          if (itemss[i].ischecked == true) {
+            item += `<div class="newDiv"><input type="checkbox" onclick=checkboxs(${
+              itemss[i].unique
+            }) name="all" class="checkbox" checked id=${
+              itemss[i].unique
+            }><label class="label" name="list" style="text-decoration: line-through" id=${
+              itemss[i].unique
+            }>${itemss[
+              i
+            ].task.trim()}</label><button class="close" onclick=Close(${
+              itemss[i].unique
+            }) id=${
+              itemss[i].unique
+            }>X</button></div><input type="text" name="newvalue" ondblclick=update(${
+              itemss[i].unique
+            }) class="newele" id=${itemss[i].unique}><hr>`;
+          } else {
+            item += `<div class="newDiv"><input type="checkbox" onclick=checkboxs(${
+              itemss[i].unique
+            }) name="all" class="checkbox" id=${
+              itemss[i].unique
+            }><label type="text" name="list" class="label" id=${
+              itemss[i].unique
+            }>${itemss[
+              i
+            ].task.trim()}</label><button class="close" onclick=Close(${
+              itemss[i].unique
+            }) id=${
+              itemss[i].unique
+            }>X</button></div><input type="text" name="newvalue" ondblclick=update(${
+              itemss[i].unique
+            }) class="newele" id=${itemss[i].unique}><hr>`;
+          }
+        }
+
+        document.getElementById("ull").innerHTML = item;
+        console.log(arr);
+
+        var inp = 0;
+        var bnp = arr.length;
+        for (let index = 0; index < arr.length; index++) {
+          if (arr[index].ischecked == true) {
+            inp += 1;
+          }
+        }
+        if (inp != 0 && bnp == inp) {
+          var all = document.getElementById("allcheck");
+          all.checked = true;
+        } else {
+          var all = document.getElementById("allcheck");
+          all.checked = false;
+        }
+
+        var hidden = document.getElementsByClassName("newDiv");
+        for (i = 0; i < hidden.length; i++) {
+          hidden[i].onmouseover = function () {
+            var m = this.lastElementChild;
+            m.style.display = "block";
+          };
+          hidden[i].onmouseleave = function () {
+            var m = this.lastElementChild;
+            m.style.display = "none";
+          };
+        }
+
+        // var element= document.getElementsByClassName('label');
+        // for (var i = 0; i < newArray.length; i++) {
+        //     element[i].ondblclick = function () {
+        //         var all =this.id;
+        //         update(all);
+        //     }
+        // }
+
+        var btnfilter = document.querySelectorAll(".filterValue");
+        for (var i = 0; i < btnfilter.length; i++) {
+          btnfilter[i].onclick = function () {
+            var x = this.value;
+            filter(x);
+            document.querySelector("#hide").value = x;
+          };
+        }
+      }
+
+      function checkboxs(mno) {
+        var ind = arr.findIndex((obj) => {
+          return obj.unique == mno;
+          console.log(ind);
+        });
+        if (arr[ind].ischecked == false) {
+          arr[ind].ischecked = true;
+          count -= 1;
+          document.getElementById("total").innerHTML = count;
+          var result = document.querySelector("#hide").value;
+          filter(result);
+        } else {
+          arr[ind].ischecked = false;
+          count += 1;
+          document.getElementById("total").innerHTML = count;
+          var result = document.querySelector("#hide").value;
+          filter(result);
+        }
+      }
+
+      function checkAll() {
+        var allcheckk = document.getElementById("allcheck");
+        for (var i = 0; i < arr.length; i++) {
+          if (allcheckk.checked) {
+            arr[i].ischecked = true;
+            count = 0;
+            document.getElementById("total").innerHTML = count;
+          } else {
+            arr[i].ischecked = false;
+            count += 1;
+            document.getElementById("total").innerHTML = count;
+          }
+        }
+        var result = document.querySelector("#hide").value;
+        filter(result);
+      }
+
+      function Close(ab) {
+        var index = newArray.findIndex((obj) => {
+          return obj.unique == ab;
+          console.log(index);
+        });
+        if (index >= 0) {
+          if (arr[index].ischecked != true) {
+            count -= 1;
+            document.getElementById("total").innerHTML = count;
+          }
+          arr.splice(index, 1);
+          var result = document.querySelector("#hide").value;
+          filter(result);
+        }
+      }
+
+      function update(all) {
+        var y = true;
+        var i = arr.findIndex((obj) => {
+          console.log("obj", obj);
+          console.log("all", all);
+          return obj.unique == all;
+        });
+        var eleindex = newArray.findIndex((obj) => {
+          console.log("obj", obj);
+          console.log("all", all);
+          return obj.unique == all;
+        });
+        checkk[eleindex].style.display = "none";
+        element[eleindex].style.display = "none";
+        closebtns[eleindex].style.display = "none";
+        inputname[eleindex].style.display = "block";
+        inputname[eleindex].focus();
+        inputname[eleindex].value = element[eleindex].innerHTML;
+        inputname[eleindex].addEventListener("keyup", function (event) {
+          if (event.keyCode === 13) {
+            inputname[eleindex].value.trim();
+            y = false;
+            if (inputname[eleindex].value != "") {
+              newArray[eleindex].task = inputname[eleindex].value;
+              var result = document.querySelector("#hide").value;
+              filter(result);
+            } else {
+              arr.splice(i, 1);
+              var result = document.querySelector("#hide").value;
+              filter(result);
+            }
+          } else {
+            if (event.keyCode === 27) {
+              y = false;
+              var result = document.querySelector("#hide").value;
+              filter(result);
+            }
+          }
+        });
+        inputname[eleindex].addEventListener("blur", function () {
+          if (y === true) {
+            if (inputname[eleindex].value != "") {
+              newArray[eleindex].task = inputname[eleindex].value;
+              element[eleindex].innerHTML = inputname[eleindex].value;
+              inputname[eleindex].style.display = "none";
+              checkk[eleindex].style.display = "block";
+              element[eleindex].style.display = "block";
+            } else {
+              if (arr[i].ischecked == false) {
+                count -= 1;
+                document.getElementById("total").innerHTML = count;
+              }
+              arr.splice(i, 1);
+              var result = document.querySelector("#hide").value;
+              filter(result);
+            }
+          }
+        });
+      }
+
+      function filter(x) {
+        if (x == "active") {
+          newArray = arr.filter((key) => key.ischecked === false);
+        } else if (x == "completed") {
+          newArray = arr.filter((key) => key.ischecked === true);
+        } else {
+          newArray = arr;
+        }
+        print(newArray);
+      }
+
+      function remove() {
+        for (var i = 0; i < newArray.length; i++) {
+          if (newArray[i].ischecked == true) {
+            newArray.splice(i, 1);
+          }
+          var result = document.querySelector("#hide").value;
+          filter(result);
+        }
+      }
+
+      add.addEventListener("keyup", (e) => {
+        if (event.which === 13) {
+          e.preventDefault();
+          click();
+        }
+      });
+    </script>
+  </body>
+</html>

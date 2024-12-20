@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script>
+      // a = 3;
+      // document.write("<h3>" + a + "<h3>");
+      for (i = 1; i < 5; i++) {
+        for (j = 1; j < 5 - i; j++) {
+          document.write("&nbsp&nbsp");
+        }
+        for (k = 1; k <= i; k++) {
+          document.write("*");
+        }
+        document.write("<br/>");
+      }
+
+      for (a = 1; a < 5; a++) {
+        for (b = 1; b <= a; b++) {
+          document.write("*" + " ");
+        }
+        document.write("<br>");
+      }
+      document.write("<br>");
+      document.write("<br>");
+
+      for (a = 1; a <= 5; a++) {
+        for (b = 0; b <= 5 - a; b++) {
+          document.write("&nbsp&nbsp&nbsp");
+        }
+        for (k = 1; k <= a; k++) {
+          document.write("*" + " ");
+        }
+        document.write("<br>");
+      }
+
+      document.write("<br>");
+      document.write("<br>");
+
+      for (a = 0; a <= 5; a++) {
+        for (b = 0; b <= a - 1; b++) {
+          document.write("*" + " ");
+        }
+        for (c = 0; c < 2 * (5 - a); c++) {
+          document.write("&nbsp&nbsp&nbsp");
+        }
+        for (k = 1; k <= a; k++) {
+          document.write("*" + " ");
+        }
+        document.write("<br>");
+      }
+
+      document.write("<br>");
+      document.write("<br>");
+
+      for (i = 0; i < 5; i++) {
+        for (v = 0; v < i; v++) {
+          document.write("&nbsp&nbsp&nbsp");
+        }
+        for (p = 0; p < 2 * (5 - i) - 1; p++) {
+          document.write("*" + " ");
+        }
+        document.write("<br>");
+      }
+      for (i = 1; i <= 5; i++) {
+        for (v = 1; v <= 5 - i; v++) {
+          document.write("&nbsp&nbsp&nbsp");
+        }
+        for (p = 0; p <= 2 * i - 2; p++) {
+          document.write("*" + " ");
+        }
+        document.write("<br>");
+      }
+
+      document.write("<br>");
+      document.write("<br>");
+
+      for (a = 0; a < 5; a++) {
+        for (b = 0; b <= a; b++) {
+          document.write("*" + " ");
+        }
+        document.write("<br>");
+      }
+      for (a = 1; a <= 5 - 1; a++) {
+        for (b = 0; b < 5 - a; b++) {
+          document.write("*" + " ");
+        }
+        document.write("<br>");
+      }
+
+      document.write("<br>");
+      document.write("<br>");
+
+      document.write("<br>");
+    </script>
+  </head>
+  <body></body>
+</html>

@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>prectice</title>
+    <link rel="stylesheet" href="farm.css" />
+  </head>
+  <body>
+    <h1 id="p1"></h1>
+    <!-- <input type="num" name="num" class="nvalue" /> -->
+    <!-- <button type="button" onclick="fetch()">click</button> -->
+    <script>
+      ("use strict");
+      const b = "const";
+      let a = "let";
+      var c = "var";
+      document.getElementById("p1").innerHTML = b;
+
+      // var number = document.querySelector(".nvalue");
+      // let x = {},
+      //   y = { name: "Ronny" },
+      //   z = { name: "John" };
+      // x[y] = "Vivek";
+      // x[z] = { name: "Akki" };
+      // function fetch() {
+      //   console.log(number.value);
+      //   c = number.value;
+      // }
+      // fetch();
+      // console.log(c);
+      // c = document.getElementById("nvalue").innerHTML.valueOf;
+      // setTimeout(() => {
+      //   console.log(c);
+      // }, 2000);
+
+      //Hoisting in javascript
+      // {1 : hoisting is default behaviour.
+      // 2 : It give output without error beacuse during compiling js is correct syntax of declartion.}
+
+      // Difference between var and let keyword
+      // {1: var keyword declare same name.
+      //  2: let keyword not declare same name.
+      // }
+
+      //Type Coercion in javascript
+      // {1: It is automatic change value datatype.
+      //  2: string coercion- "+" converted to a string type , "-" converted to a number type.
+      //  3: boolean coercion- use at loop,ifelse,ternary operator,logical operator(or,and).true value converted in true(1) and false value converted in false(0).
+      //  4: Equality Coercion- "==" compare value not type and "===" compare value with type.
+      // }
+
+      //prototypes
+      // {
+      //   1:prototype is blueprint of Object.
+      //   2:It is allow to access object property and also access those not exist.
+      //   3:Every prototype inherits properties and methods from the "Object.prototype".
+      // }
+
+      //constructor function
+      // {
+      //  1:Use to create object.
+      //  2:Use it when create multiple objects having similar properties and methods.
+      //  3:It function name start with capital letter.
+      //  4:Constructor create with "new" keyword.
+      // }
+
+      //arrow function
+      // {
+      //   1:it shorter syntax to declare function.
+      //   2:declare by "=>" not function keyword.
+      // }
+
+      //scope of variable
+      // {
+      //   1:"var" variable is block or functional or global scope.
+      //   2:"let" variable is block or functional or global scope.
+      //   3:"const" variable is block or functional or global scope.
+      // }
+
+      //deferr scripts
+      // {
+      //   1: browser not wait for this script.
+      //   2: it script not wait for other script.
+      //   3: DOMContentLoaded will continue to process the HTML, build DOM.
+      //   4: it script load in background and then run when DOM is fully built.
+      // }
+
+      //async script
+      // {
+      //   1: browser not block this script.
+      //   2: it script not wait for other script.
+      //   3: DOMContentLoaded and async scripts don’t wait for each other.
+      // }
+
+      // let first = {
+      //   msg1: "self",
+      // };
+      // let second = {
+      //   msg: "inherit",
+      //   mathod: () => {
+      //     console.log(b);
+      //   }
+      // };
+      // console.log(second);
+      // first.__proto__ = second // first object inherit second object's value
+      // first.mathod(); // first object access second object's value
+      // console.log(first.msg);
+
+      // var type = {
+      //   d: a,
+      //   e: b,
+      //   f: c,
+      //   g: function (...args) {
+      //     console.log(this.msg, ...args);
+      //   },
+      // };
+
+      //prototype design pattern
+      // function Car(model, year, miles,...args) {
+      //   this.model = model;
+      //   this.year = year;
+      //   this.miles = miles;
+      //   this.navu = [...args];
+      // }
+      // Car();
+      //  Car.prototype.toString = function () {
+      //   return this.model + " has done " + this.miles + " miles ";
+      // };
+      // let civic = new Car("TATA", 2009, 2000,["FORD", 2010, 5000]);
+      // let mondeo = new Car("FORD", 2010, 5000);
+      // console.log(civic.toString());
+      // console.log(mondeo.toString());
+      // document.getElementById("p1").innerHTML = Car.prototype.toString = function () {
+      //   return this.model + " has done " + this.miles + " miles "+ "<br> " + this.navu;
+      // };
+
+      // var ab=10;
+      // if (ab%10=0) {
+      // console.log("divisible by 10");
+      // }// logical error
+      // var obj = { name: "me" };
+      // type.g.call(obj); //call
+      // type.g.apply(obj, ["ready"]); //apply
+      // var binding = type.g.bind(obj, "a", "b", "c");
+      // binding(); //bind
+
+      // function add(a) {
+      //   console.log(a);
+      //   return function (b) {
+      //     console.log(b);
+      //     console.log(a + b);
+      //   };
+      // }
+      // add(3)(4); // arguments pass nested function
+      // function multiply(a, b) {
+      //   console.log(a * b);
+      // }
+
+      // function currying(fn) {
+      //   return function (a) {
+      //     return function (b) {
+      //       console.log(a, b);
+      //       return fn(a, b);
+      //     };
+      //   };
+      // }
+
+      // var curriedMultiply = currying(multiply);
+      // multiply(4, 3); // pass argus for one function
+      // curriedMultiply(4)(3); // pass argus for nested function
+
+      // for (var i = 1; i < 6; i++) {
+      //   for (var j = 1; j < i; j++) {
+      //     document.write("&nbsp&nbsp");
+      //   }
+      //   for (var k = 6; k > i; k--) {
+      //     document.write(" * ");
+      //   }
+      //   document.write("<br>");
+      // }
+      // console.log(i); //block-level
+
+      // function local() {
+      //   let msg = "local/function level";
+      //   console.log(msg);
+      // }
+      // local();
+      // console.log(msg); //local/function level
+
+      // const msg = "global level";
+      // function global() {
+      //   console.log(msg);//global level
+      // }
+      // global();
+
+      // for (var j = 0; j < 2; j++) {
+      //   console.log(j);
+      // }
+
+      // function catchValues() {
+      //   console.log(var1);
+      //   console.log(var2);
+      //   // Both the variables can be accessed anywhere since they are declared in the global scope
+      // }
+      // window.var1; // Returns the value 23
+      // window.var2; // Returns undefined
+
+      // console.log(j);
+      //clouser
+      // var Person = function (pName) {
+      //   var name = pName;
+
+      //   this.getName = function () {
+      //     return name;
+      //   };
+      // };
+      // var person = new Person("Divyang");
+      // console.log(person.getName());
+
+      // let car = {
+      //   name: "GT",
+      //   maker: "BMW",
+      //   engine: "1998cc",
+      //   start: function () {
+      //     console.log("Starting the engine...");
+      //   },
+      // };
+      // Adding property to the object
+      // car.brakesType = "All Disc";
+      // console.log(car);
+      // car.start();
+      // // Adding method stop() later to the object
+      // car.stop = function () {
+      //   console.log("Applying Brake...");
+      // };
+      // car.stop();
+      // //create object by Object.create() method
+      // const me = Object.create(car);
+      // me.isStudying = true;
+      // console.log(me);
+      // function displayName() {
+      //   // const name = "ok";
+      //   console.log(var2);
+      // }
+      // displayName();
+      // outer = "GeeksforGeeks";
+
+      // let promise = new Promise(function (resolve, reject) {
+      //   const x = "geeksforgeeks";
+      //   const y = "geeksforgeek";
+      //   if (x === y) {
+      //     resolve();
+      //   } else {
+      //     reject();
+      //   }
+      // });
+
+      // promise
+      //   .then(function () {
+      //     console.log("Success, You are a GEEK");
+      //   })
+      //   .catch(function () {
+      //     console.log("Some error has occurred");
+      //   });
+
+      //Generator functions
+      // function* iteratorFunc() {
+      //   let count = 0;
+      //   for (let i = 0; i < 2; i++) {
+      //     count++;
+      //     yield i;
+      //   }
+      //   return count;
+      // }
+      // let iterator = iteratorFunc();
+      // console.log(iterator.next()); // {value:0,done:false}
+      // console.log(iterator.next());
+
+      // function sayHello(...args) {
+      //   console.log(this.msg, ...args);
+      // }
+      // sayHello.call(obj);
+      // sayHello.apply(obj, ["ready"]);
+
+      // var bikeDetails = {
+      //   displayDetails: function (...arg) {
+      //     console.log(this.name, ...arg);
+      //   },
+      // };
+
+      // type.g.bind(obj, ["ready"], "to go");
+      // console.log(bikeDetails.displayDetails());
+
+      // local function
+      // (function () {
+      //   console.log(b);
+      // })();
+
+      // (function () {
+      //   console.log(b);
+      // });
+      // displayName();
+      // document.getElementById("p1").innerHTML = a;
+
+      // let ab = "GeeksforGeeks";
+      // console.log(ab);
+      // debugger;
+
+      //memoization we can store
+      // function memoizedAddTo256() {
+      //   var cache = {};
+      //   return function (num) {
+      //     if (num in cache) {
+      //       console.log("cached value", cache[num]);
+      //       // after print when cache variable have value
+      //       // return cache[num];
+      //     } else {
+      //       cache[num] = num + 20; //print first because cache variable have not value
+      //       console.log(cache[num]);
+      //       // return cache[num];
+      //     }
+      //   };
+      // }
+      // var memoizedFunc = memoizedAddTo256();
+      // memoizedFunc(20); // Normal return
+      // memoizedFunc(20); // Cached return
+
+      // function add(number) {
+      //   if (number <= 0) {
+      //     return 0;
+      //   } else {
+      //     return number + add(number - 1);
+      //   }
+      // }
+      // add(3),() => 3 + add(2)
+      //           3 + 2 + add(1)
+      //           3 + 2 + 1 + add(0);
+
+      // function Sum(arr) {
+      //   console.log(arr);
+      //   if (arr.length === 1) {
+      //     return arr[0];
+      //   } else {
+      //     console.log(arr.length);
+      //     return arr.pop() + Sum(arr);
+      //   }
+      //   console.log(arr);
+      // }
+      // Sum([7, 8, 9, 4]);
+      // Sum([1, 2, 3, 4]), () => 4 + Sum([1, 2, 3]);
+      // 4 + 3 + Sum([1, 2]);
+      // 4 + 3 + 2 + Sum([1]);
+
+      //constructor
+      // function Person(name,age,gender) {
+      //   this.name = name;
+      //   this.age = age;
+      //   this.gender = gender;
+      // }
+      // var person1 = new Person("Vivek", 76, "male");
+      // console.log(person1);
+      // var person2 = new Person("Courtney", 34, "female");
+      // console.log(person2);
+
+      // let i = 1;
+
+      // if (i == 6) {
+      //   i = 1;
+      // } else {
+      //   for (i = 1; i <= 6; i++) {
+      //     console.log(i);
+      //   }
+      // }
+
+      //exec() and test()
+      // var findMatch = () => {
+      //   var txt = "Regular expressions in JavaScript";
+      //   var search1 = new RegExp("JavaScript");
+      //   var search2 = new RegExp("Learn");
+      //   //exec() use for find specific word or exprection.
+      //   //output give if value find then "print" else print "null".
+      //   var res1 = search1.exec(txt);
+      //   var res2 = search2.exec(txt);
+      //   //test() use for find specific word or exprection.
+      //   //output give if value find then "true" else print "false".
+      //   var res3 = search1.test(txt);
+      //   var res4 = search2.test(txt);
+      //   document.getElementById("p1").innerHTML =
+      //     "exec() : " +
+      //     res1 +
+      //     " " +
+      //     res2 +
+      //     "<br>" +
+      //     "test() : " +
+      //     res3 +
+      //     " " +
+      //     res4;
+      // };
+      // findMatch();
+
+      // const makeRepeated = (arr, repeats) =>
+      //   [].concat(...Array.from({ length: repeats }, () => arr));
+      // console.log(makeRepeated([1, 2, 3], 6));
+      // while (i < 6) {
+      //   if(i == 6){
+      //     i = 1;
+      //     console.log(i);
+      //   } else{
+      //     i++;
+      //     console.log(i);
+      //   }
+      // }
+
+      //Generator object
+      //"function*" keyword is show value in object method
+      // function* genFunc() {
+      //   yield 4; //yield is show value 'done: false' that the generator function has not fully completed.
+      //   return 3; //return is show value 'done: true' that the generator function has fully completed.
+      //   // return yield 2; //return yield is show value 'done: false'.
+      // }
+      // // after "return" keyword declare "yield" keyword is show like "value: undefined". all object's values are return and after when use '.next()' for show result then show "value: undefined" because all values are declare.
+      // //'return' use at end.
+      // let fun = genFunc();
+      // console.log(fun.next());
+      // console.log(fun.next());
+      //generator object by next() method,add "done" properties auto in object.
+
+      // 'Set()' is a collection of values that can be accessed without a specific key.
+      //'Set()' is access all type value like object,class,single value.
+      // const newSet = new Set([1,2,3]);
+      // console.log(newSet); // Outputs Set {1,2,3}
+      //'WeakSet()' is access only object.
+      // const newSet2 = new WeakSet([3, 4, 5]); //Throws an error
+      // // console.log(newSet2);
+      // let obj1 = { message: "Hello world" };
+      // const newSet3 = new WeakSet([obj1]);
+      // console.log(newSet3.has(obj1)); // true
+
+      // Maps are used to store data in key-value pairs where keys are used to uniquely identify an element and values contain the data associated with it.
+      // const map1 = new Map();
+      // map1.set("name", "Ram");
+      // map1.set("Role", "SDE");
+      // map1.set("Country", "India");
+      // console.log(map1);
+      // for (let item of map1) {
+      //   console.log(map1);
+      // }
+      //'WeakMap()' is access only object.
+      // const map2 = new WeakMap();
+      // map2.set("Value", 2.3); // Throws an error
+      // let obj = { name: "Vivek" };
+      // const map3 = new WeakMap();
+      // map3.set('name',"ram");
+      // map3.set('age',23);
+      // let weakmap = new WeakMap();
+      // let Ram = { name };
+      // let Raj = { name };
+      // let Rahul = { name };
+      // weakmap.set(Ram, "Ram");
+      // weakmap.set(Raj, "Raj");
+      // weakmap.set(Rahul, "Rahul");
+      // console.log(weakmap);
+
+      // console.log(map3);
+
+      //object destructuring
+      // const classDetails = {
+      //   total: 78,
+      //   benches: [{ div1: "30" }],
+      //   blackBoard: 1,
+      // };
+      // const { total, benches, blackBoard } = classDetails;
+      // console.log(benches);
+
+      //instant call function
+      var scop = "global scope";
+      (function check() {
+        console.log(scop);
+        var scope = "local scope";
+        function f() {
+          console.log(scope);
+          return scope;
+        }
+        f();
+      })();
+
+      // let x = {},
+      //   y = { name: "Ronny" },
+      //   z = { name: "John" };
+      // x[y] = { name: "Vivek" };
+      // x[z] = { name: "Akki" };
+      // console.log(x[y]);
+
+      // var x = 23;
+      // (function () {
+      //   var x = 43;
+      //   (function random() {
+      //     x++;
+      //     console.log(x);
+      //     var x = 21;
+      //   })();
+      // })();
+    </script>
+  </body>
+</html>

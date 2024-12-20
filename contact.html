@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Contact us</title>
+	<link rel="stylesheet" href="E:/js/bootstrap/bootstrap-5.0.2-dist/bootstrap-5.0.2-dist/css/bootstrap-grid.min.css">
+    <script src="E:/js/bootstrap/jquery.slim.min.js_3.5.1/cdnjs/jquery.slim.min.js" ></script>
+    <script src="E:/js/bootstrap/popper.min.js/pop/popper.min.js" ></script>
+    <script src="E:/js/bootstrap/bootstrap-5.0.2-dist/bootstrap-5.0.2-dist/js/bootstrap.min.js" ></script>
+	<style>
+			body{
+                font-size: 17px;
+                background-image: url("knowledge.jpg");
+                height: 100%;
+                background-size: cover;
+                background-attachment: fixed;
+                background-repeat: no-repeat;
+                background-position: center;
+				font-family: 'Courier New', Courier, monospace;
+			}
+			.title{
+                text-align: center;
+				top: 0px;
+				position: sticky;
+				backdrop-filter: blur(40px);
+				border: 2px solid rgba(255,255,255,0.1);
+				box-shadow: 0 0 40px rgba(8,7,16,0.6);
+				border-bottom: 2px solid black;
+				border-radius: 15px;
+                color: white;
+				font-family: 'Courier New', Courier, monospace;
+            }
+			p{
+				text-align: center;
+				font-weight: bold;
+                font-size: 29px;
+			}
+            .sidebar{
+                margin-top: 10px;
+                padding: 0;
+                width: 200px;
+                position: fixed;
+                height: 100%;
+                overflow: auto;
+                font-size: 20px;
+                border-radius: 15px;
+                border-right: 2px solid black;
+				color: black;
+            }
+            .sidebar a {
+                display: block;
+                color: white;
+                padding: 16px;
+                text-decoration: none;
+                border-top-right-radius: 20%;
+                border-bottom-right-radius: 20%;
+            }
+            .sidebar a:hover:not(.active) {
+                background-color: black;
+            }
+			.container{
+                display: block;
+                margin-top: 70px;
+                margin: auto;
+				margin-top: 20px;
+                width: 300px;
+                padding: 32px 32px;
+                border-radius: 30px;
+                backdrop-filter: blur(10px);
+                border: 2px solid rgba(255,255,255,0.1);
+                box-shadow: 0 0 40px rgba(8,7,16,0.6);
+			}
+			textarea{
+                height: 25px;
+                font-size: 17px;
+				margin-bottom:25px;
+                border-radius: 5px;
+                background: transparent;
+                border: none;
+                border-bottom: 1px solid black;
+				font-weight: bold;
+			}
+			h2{
+				color: white;
+			}
+			.btn{
+				border-radius:18px;
+				padding:15px;
+                font-size: 15px;
+                align-items: center;
+                font-weight: bold;
+                border: none;
+                background-color: orangered;
+                cursor: pointer;
+                text-decoration:none;
+			}
+	</style>
+</head>
+<body>
+	<div class="title">
+		<h1>Shree Shambhubhai V. Patel Collage of Computer Science & Business Management</h1>
+	</div>
+	<div class="sidebar">
+		<div class="a"><a href="q4.html">Home</a></div>
+		<div class="a"><a href="login.html">Registration</a></div>
+		<div class="a"><a href="college.html">Login</a></div>
+		<div class="a"><a href="photogallary.html">Photo Gallary</a></div>
+		<div class="a"><a href="contact.html">Contact Us</a></div>
+	</div>
+	<div class="container">
+		<p>Reach Us</p>
+		<div>
+			<h2>Email</h2>
+			<h3> svpatelcsbm@gmail.com</h3>
+		</div>
+		<div>
+			<h2>Phone</h2>
+			<h3>0261-2537772</h3>
+		</div>
+		<div>
+			<h2>Address</h2>
+			<h3>Sumul Dairy Road (Near I. C. Gandhi High School) India, Surat 395009·</h3>
+		</div><br>
+		<div class="form-group row">
+			<h2 for="message" class = "col-sm-4 control-label" >Message</h2>
+			<textarea row="2" cols="27" class="form-control" id="message" placeholder="Feedback" ></textarea>
+		</div>
+		<div>
+			<button type="submit" class="btn offset-sm-4 col-sm-4" onclick="return send()">SEND</button>
+		</div>
+	</div>
+	<script>
+		function send(){
+			var x=document.querySelector("#message");
+			if(x.value==''){
+				alert("Please give up feedback about college!");
+			} else {
+				alert("Thank you.");
+			}
+		}
+	</script>
+</body>
+</html>

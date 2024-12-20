@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script>
+           
+           let obj = {
+                         'country':{
+                                  name:'India',
+                                  state: {
+                                           name: "gujarat",
+                                           city: {
+                                                  name: "surat",
+                                                  population:500
+                                                 }
+                                         },
+                                 },
+                         'country1':{
+                                  name:'Uk',
+                                  state: {
+                                          name: "UP",
+                                          city: {
+                                                 name: "surat",
+                                                 population:1200
+                                                }
+                                         },
+                                 },
+                         'country2':{
+                                  name:'India',
+                                  state: {
+                                           name: "gujarat",
+                                           city: {
+                                                  name: "rajkot",
+                                                  population:1500
+                                                 }
+                                         },
+                                 },
+                         'country3':{
+                                  name:'India',
+                                  state: {
+                                          name: "gujarat",
+                                          city: {
+                                                 name: "surat",
+                                                  population:1500
+                                                 }
+                                         },
+                                 },
+                         'country4':{
+                                  name:'India',
+                                  state: {
+                                          name: "mp",
+                                          city: {
+                                                  name: "surat",
+                                                  population:1500
+                                                 }
+                                         },
+                                 },
+                         'country5':{
+                                  name:'India',
+                                  state: {
+                                          name: "punjab",
+                                          city: {
+                                                  name: "surat",
+                                                  population:1500
+                                                }
+                                         },
+                                 },
+                         'country6':{
+                                  name:'Canada',
+                                  state: {
+                                          name: "gujarat",
+                                          city: {
+                                                  name: "surat",
+                                                  population:2000
+                                                }
+                                         },
+                                 },
+                         'country7':{
+                                  name:'India',
+                                  state: {
+                                           name: "gujarat",
+                                           city: {
+                                                   name: "surat",
+                                                   population:2000
+                                                 }
+                                         },
+                                 },
+                     };
+       
+     var n=new Object();
+     var sum=0;
+//      console.log(obj.length);   
+//      console.log(obj);   
+    for(var i in obj){
+        // console.log(obj[i].name);
+        // console.log(obj[i].state.name);
+        // console.log(obj[i].state.city.name);
+       if(obj[i].name == 'India' && obj[i].state.name == "gujarat" && obj[i].state.city.name == "surat")
+        {
+            n.country=obj[i].name;
+            n.state=obj[i].state.name;
+            n.city=obj[i].state.city.name;
+            sum += obj[i].state.city.population ;
+        }
+    //     console.log(obj[i]);
+        
+    }
+       n.sum=sum;
+       console.log(n);
+      
+        </script>
+    </head>
+</html>

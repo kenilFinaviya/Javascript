@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            body{
+                 background-color:skyblue;
+                 border-radius: 20px;
+                }
+            h1{
+                background-color:gray;
+                text-align: center;
+                background-origin: padding-box;
+                border-radius: 5px;
+            }
+        form{
+            background-color: gray;
+            border-radius: 5px;
+        }
+        .menu {
+                float:right;
+                width: 20%;
+                text-align: center;
+                background-color:rgb(252, 165, 4);
+                border-radius: 8px;
+                height: 417px;
+                background-origin: padding-box;
+                color: black;
+                padding-top: 20px;
+                text-size-adjust: 20ox;
+                border-right: 0%;
+              }
+
+        </style>
+        <link href="s.css">
+        <title>www.learn.com</title>
+    </head>
+    <body>
+        <h1 style="color: black;"><b>Welcome to our side....</b></h1>
+        <div style="overflow:auto">
+            <div class="menu">
+              <a href="#">Home</a><br>
+              <a href="#">About us</a><br>
+              <a href="#">Contact us</a><br>
+              <a href="#">Refrence</a>
+            </div>
+        <form onsubmit="test(event)" id="signup" method="post">
+         <label form="fname" style="font-size: large;font-family:Georgia, 'Times New Roman', Times, serif;font-weight: bolder;">Fname:</label>
+         <input type="text" id="fname" name="fname" style="font-family: 'Courier New', Courier, monospace;"  >
+        
+         <br><br>
+         <label form="lname" style="font-size: large;font-family:Georgia, 'Times New Roman', Times, serif;font-weight: bolder;">Lname:</label>
+         <input type="text" id="lname" name="lname" style="font-family: 'Courier New', Courier, monospace;">
+         <br><br>
+         <label form="mail" style="font-size: large;font-family:Georgia, 'Times New Roman', Times, serif;font-weight: bolder;">Mail:</label>
+         &nbsp&nbsp&nbsp<input type="email" id="mail" name="mail"style="font-family: 'Courier New', Courier, monospace;">
+         <br><br>
+         <label form="password" style="font-size: large;font-family:Georgia, 'Times New Roman', Times, serif;font-weight: bolder;">Password:</label>
+         <input type="password" id="password" name="password" style="font-family: 'Courier New', Courier, monospace;">
+         <br><br>
+         <label form="Confirm Password" style="font-size: large;font-family:Georgia, 'Times New Roman', Times, serif;font-weight: bolder;">Confirm Password:</label>
+         <input type="password" id="Confirm password" name="Confirm password" style="font-family: 'Courier New', Courier, monospace;">
+         <br><br>
+         <label form="city" style="font-size: large;font-family:Georgia, 'Times New Roman', Times, serif;font-weight: bolder;">City:</label>
+         <input list="city">
+           <datalist id="city">
+                 <option value="surat" style="font-family: 'Courier New', Courier, monospace;">
+                 <option value="bharuch" style="font-family: 'Courier New', Courier, monospace;">
+                 <option value="ahmdabad" style="font-family: 'Courier New', Courier, monospace;">
+                 <option value="rajkot" style="font-family: 'Courier New', Courier, monospace;">
+                 <option value="bhavnagar" style="font-family: 'Courier New', Courier, monospace;">
+           </datalist>
+         <br><br>
+         <label form="gender" style="font-size: large;font-family:Georgia, 'Times New Roman', Times, serif;font-weight: bolder;">Gender:</label>
+         <input list="gender">
+            <datalist id="gender">
+                <option value="Male" style="font-family: 'Courier New', Courier, monospace;">
+                <option value="Female" style="font-family: 'Courier New', Courier, monospace;">
+                <option value="Transgender" style="font-family: 'Courier New', Courier, monospace;"> 
+            </datalist>  
+         <br><br>
+         <label form="hobby" style="font-size: large;font-family:Georgia, 'Times New Roman', Times, serif;font-weight: bolder;">Hobby:</label>  
+         &ensp;<input type="checkbox" name="hobby1">
+         <label for="hobby1" >Writting</label><br>
+         &emsp;&emsp;&emsp;&emsp;&emsp;<input type="checkbox" name="hobby2">
+         <label for="hobby2">Traveling</label><br>
+         &emsp;&emsp;&emsp;&emsp;&emsp;<input type="checkbox" name="hobby3">
+         <label for="hobby3">Reading</label><br>
+         &emsp;&emsp;&emsp;&emsp;&emsp;<input type="checkbox" name="hobby4">
+         <label for="hobby4">Trecking</label>
+         <br><br><br>
+         <input type="submit" value="submit" style="font-family:Georgia, 'Times New Roman', Times, serif;font-size: large;font-weight: bolder;">
+        
+      </form>
+      <div id="fn"></div>   
+      <script>
+      function test()
+      {
+          event.preventDefault()
+          const form = document.getElementById('signup');
+          const name = form.elements['fname'];
+          const lname = form.elements['lname'];
+          const email = form.elements['mail'];
+          const password = form.elements['password'];
+          const Confirm = form.elements['Confirm password'];
+          const city = form.elements['city'];
+          const gender = form.elements['gender'];
+          const hobby = form.elements['hobby'];
+
+          console.log("name: ",name.value);
+          console.log("lname: ",lname.value);
+          console.log("email: ",email.value);
+          console.log("password: ",password.value);
+          console.log("Confirm password: ",Confirm.value);
+          console.log("gender: ",gender.value);
+          console.log("hobby: ",hobby.value);
+
+          
+          console.log("event",event);  
+          console.log("calllllll",event.target.value);  
+       
+      } 
+      </script>
+     </body> 
+</html>
